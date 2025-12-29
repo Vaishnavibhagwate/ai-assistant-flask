@@ -4,7 +4,12 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-API_KEY = "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"
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+API_KEY = os.getenv("OPENROUTER_API_KEY")
+
 
 def ask_ai(prompt):
     url = "https://openrouter.ai/api/v1/chat/completions"
